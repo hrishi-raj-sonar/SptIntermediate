@@ -29,7 +29,7 @@ public abstract class JdbcConnection {
     
     abstract String getPassword();
     
-    public void EstablishConnection() {
+    public void establishConnection() {
         try {
             Class.forName(getJdbcDriverClass());
 

@@ -5,6 +5,8 @@
  */
 package com.syntech.sptintermediate;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author hrishi
@@ -13,7 +15,7 @@ public class MsSqlConnection extends JdbcConnection {
 
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-    String jdbcURL = "jdbc:sqlserver://127.0.0.1;databaseName=Students;selectMethod=cursor";
+    String jdbcURL = "jdbc:sqlserver://127.0.0.1;databaseName=users;selectMethod=cursor";
 
     String userName = "sa";
 
@@ -38,5 +40,11 @@ public class MsSqlConnection extends JdbcConnection {
     String getPassword() {
         return password;
     }
-
+    
+    public static void main(String[] args) throws SQLException {
+        MySqlConnection a = new MySqlConnection();
+        a.establishConnection();
+        a.read();
+        
+    }
 }

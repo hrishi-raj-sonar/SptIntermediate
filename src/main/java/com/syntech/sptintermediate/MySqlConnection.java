@@ -15,7 +15,7 @@ public class MySqlConnection extends JdbcConnection{
 
     String driver = "com.mysql.cj.jdbc.Driver";
     
-    String jdbcUrl = "jdbc:mysql://localhost:3306/Students";
+    String jdbcUrl = "jdbc:mysql://localhost:3306/users";
     
     String username = "root";
     
@@ -44,6 +44,7 @@ public class MySqlConnection extends JdbcConnection{
     
     public static void main(String[] args) throws SQLException {
         MySqlConnection a = new MySqlConnection();
+        a.establishConnection();
         a.read();
         
     }
