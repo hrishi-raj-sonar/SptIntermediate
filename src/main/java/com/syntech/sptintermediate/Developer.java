@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author hrishi
  */
-public class Developer extends UsersMethods implements IDeveloper{
+public class Developer extends Users{
 
 //    public Developer(Object) {
 //        super(user);

@@ -6,51 +6,50 @@
 package com.syntech.sptintermediate;
 
 import java.sql.SQLException;
-import java.util.Scanner;
-import com.syntech.sptintermediate.Reviewer;
 
-class Users <T extends IDeveloper & IReviewer> {
+/**
+ *
+ * @author hrishi
+ */
+public class Users {
+    
+    public void mySqlConnect() throws SQLException {
+        MySqlConnection q = new MySqlConnection() {
+        };
+        q.establishConnection();
+        q.read();
+    }
 
-//    static String role = getrole();
-    
-    T user; 
-    String userRole;
-    
-    Users(T user){
-        this.user = user;
+    public void msSqlConnect() throws SQLException {
+        MySqlConnection q = new MySqlConnection();
+        q.establishConnection();
+        q.read();
     }
     
-    
-//    public String printUserType(){
-    public void printUserType(){     
-          String clsname = user.getClass().toString(); //returns sth like java.lang.String
-          int mid = clsname.lastIndexOf('.') + 1;
-          userRole = clsname.substring(mid);
-          System.out.println(userRole);
+    public static Developer createDeveloper(int id, String name, String email) {
+        Developer d = new Developer();
         
-//          return userRole;
+        UsersModel<Developer> u = new UsersModel(d);
+        u.printUserType();
+        return d;
     }
     
-
-//    public static String getrole() {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Who are you? : ");
-//        String m = sc.next();
-//        return m;
-//    }
-
-    public void tasks(){
+    public static Reviewer createReviewer(int id, String name, String email){
+        Reviewer r = new Reviewer();
+        UsersModel<Reviewer> u = new UsersModel(r);
+        return r;
+    }
+    
+//   
+     
+    public static void main(String[] args) {
+         Developer d = createDeveloper(1, "Ram", "ram@gmail.com");
+//         createReviewer(2, "Zebra", "zebra@zabri.com");
+        d.startStory();
+        d.deliverStory();
         
-        if(userRole.equalsIgnoreCase("Developer")){
-            user.startStory();
-            user.finishStory();
-            user.deliverStory();
-        }
-//        else if(userRole.equalsIgnoreCase("Reviewer")){
-//            user.reviewStory();
-//        }else{
-//            System.out.println("Wrong choice!!!");
-//        }
+        Reviewer r = createReviewer(2, "Gaurab", "gaurab@gmail.com");
         
+        r.reviewStory();
     }
 }

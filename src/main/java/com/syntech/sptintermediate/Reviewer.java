@@ -9,7 +9,7 @@ package com.syntech.sptintermediate;
  *
  * @author hrishi
  */
-public class Reviewer extends UsersMethods implements IReviewer{
+public class Reviewer extends Users{
 
 //    private Long id;
 //    private String name;
