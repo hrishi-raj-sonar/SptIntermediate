@@ -5,6 +5,7 @@
  */
 package com.syntech.sptintermediate;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -38,5 +39,13 @@ public class Reviewers extends AllUsers {
     
     public void removeUser(int id) {
         System.out.println("Removing developer with id "+ id);   
+    }
+    
+    //Story methods using the story ods file test.ods
+    
+    public void reviewStory() {
+        File file = new File("test.ods");
+        StoryOdsReaderWriter objODSCreator = new StoryOdsReaderWriter();
+        objODSCreator.reviewStory(file);
     }
 }

@@ -17,7 +17,7 @@ import org.jopendocument.dom.spreadsheet.SpreadSheet;
  *
  * @author hrishi
  */
-public class OdsReaderWriter {
+public class UsersOdsReaderWriter {
     
     Sheet sheet;
     

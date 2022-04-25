@@ -5,6 +5,7 @@
  */
 package com.syntech.sptintermediate;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -41,4 +42,25 @@ public class Developers extends AllUsers {
     public void removeUser(int id) {
         System.out.println("Removing developer with id "+ id);   
     }
+    
+    
+    //Story methods using the story ods file test.ods
+    
+    public void startStory(){
+        File file = new File("test.ods");
+        StoryOdsReaderWriter obj = new StoryOdsReaderWriter();
+        obj.startStory(file);
+    }
+    
+    public void finishStory(){
+        File file = new File("test.ods");
+        StoryOdsReaderWriter obj = new StoryOdsReaderWriter();
+        obj.finishStory(file);
+    }
+    
+    public void deliverStory(){
+        File file = new File("test.ods");
+        StoryOdsReaderWriter obj = new StoryOdsReaderWriter();
+        obj.deliverStory(file);
+    } 
 }

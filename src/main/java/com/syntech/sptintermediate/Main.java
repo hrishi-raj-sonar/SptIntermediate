@@ -26,14 +26,14 @@ public class Main {
         switch (currentUser) {
             case 1:
                 System.out.println("Welcome developer!");
-                Developers ram = new Developers(1, "Ram", "ram@gmail.com");
+                Developers dev = new Developers(1, "Ram", "ram@gmail.com");
                 
                 System.out.println("1 for List | 2 for Jdbc | 3 for Ods : ");
                 int choice1 = sc.nextInt();
                 
                 switch(choice1){
                     case 1:
-                        developerListOptions(ram);
+                        developerListOptions(dev);
                         break;
                     case 2 :
                         developerJdbcOptions();
@@ -42,17 +42,20 @@ public class Main {
                         developerOdsOptions();
                         break;
                 }
+                
+                DeveloperStoryOptions(dev);
+                
                 break;
             case 2:
                 System.out.println("Welcome reviewer: ");
-                Reviewers hari = new Reviewers(1, "Hari", "hari@gmail.com");
+                Reviewers rev = new Reviewers(1, "Hari", "hari@gmail.com");
                 
                 System.out.println("1 for List | 2 for Jdbc | 3 for Ods : ");
                 int choice2 = sc.nextInt();
                 
                 switch(choice2){
                     case 1:
-                        reviewerListOptions(hari);
+                        reviewerListOptions(rev);
                         break;
                     case 2 :
                         reviewerJdbcOptions();
@@ -61,17 +64,19 @@ public class Main {
                         reviewerOdsOptions();
                         break;
                 }
+                
+                reviewerStoryOptions(rev);
                 break;
             case 3:
                 System.out.println("Welcome requestor: ");
-                Requestors shyam = new Requestors(1, "shyam", "shyam@gmail.com");
+                Requestors req = new Requestors(1, "shyam", "shyam@gmail.com");
                 
                 System.out.println("1 for List | 2 for Jdbc | 3 for Ods : ");
                 int choice3 = sc.nextInt();
                 
                 switch(choice3){
                     case 1:
-                        requestorListOptions(shyam);
+                        requestorListOptions(req);
                         break;
                     case 2 :
                         requestorJdbcOptions();
@@ -80,13 +85,18 @@ public class Main {
                         requestorOdsOptions();
                         break;
                 }
+                
+                requestorStoryOptions(req);
+                
                 break;
             default:
                 System.out.println("Wrong entry!");
+                
         }
-
+        
     }
-
+    
+    
     public static Developers createDevelopersObject() {
 
         Scanner sc = new Scanner(System.in);
@@ -179,9 +189,26 @@ public class Main {
     
     public static void developerOdsOptions() {
         File file = new File("developers.ods");
-            OdsReaderWriter obj = new OdsReaderWriter();
+            UsersOdsReaderWriter obj = new UsersOdsReaderWriter();
             obj.removeOdsRow(file);
     }
+    
+    public static void DeveloperStoryOptions(Developers dev){
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1 for starting a story | 2 for finishing a story | 3 for delivering a story : ");
+        int choice = sc.nextInt();
+       if(choice == 1){
+           dev.startStory();
+       }else if(choice == 2){
+           dev.finishStory();
+       }else if(choice == 3){
+           dev.deliverStory();
+       }else{
+           System.out.println("Wrong entry!!!");
+       }
+    }
+    
     
     public static void reviewerListOptions(Reviewers hari) {
 
@@ -277,7 +304,7 @@ public class Main {
     
     public static void reviewerOdsOptions() {
         File file = new File("reviewers.ods");
-            OdsReaderWriter obj = new OdsReaderWriter();
+            UsersOdsReaderWriter obj = new UsersOdsReaderWriter();
             obj.removeOdsRow(file);
             
             Scanner sc = new Scanner(System.in);
@@ -309,6 +336,13 @@ public class Main {
                 flag = 0;
             }
         }
+    }
+    
+    public static void reviewerStoryOptions(Reviewers rev){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        rev.reviewStory();
     }
     
     public static void requestorListOptions(Requestors shyam) {
@@ -403,7 +437,7 @@ public class Main {
     
     public static void requestorOdsOptions() {
         File file = new File("requestors.ods");
-            OdsReaderWriter obj = new OdsReaderWriter();
+            UsersOdsReaderWriter obj = new UsersOdsReaderWriter();
             obj.removeOdsRow(file);
             
             Scanner sc = new Scanner(System.in);
@@ -436,4 +470,20 @@ public class Main {
             }
         }
     }
+    
+    public static void requestorStoryOptions(Requestors req){
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1 for creating new attribute | 2 for changing attributes: ");
+        int choice = sc.nextInt();
+       if(choice == 1){
+           req.createStory();
+       }else if(choice == 2){
+           req.changeAttributes();
+       }else{
+           System.out.println("Wrong entry!!!");
+       }
+    }
+    
+    
 }

@@ -5,6 +5,7 @@
  */
 package com.syntech.sptintermediate;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -39,4 +40,19 @@ public class Requestors extends AllUsers {
     public void removeUser(int id) {
         System.out.println("Removing requestor with id "+ id);   
     }
+    
+    //Story methods using the story ods file test.ods
+    
+    public void createStory() {
+        File file = new File("test.ods");
+        StoryOdsReaderWriter obj = new StoryOdsReaderWriter();
+        obj.addToODS(file);
+    }
+    
+    public void changeAttributes() {
+        File file = new File("test.ods");
+        StoryOdsReaderWriter obj = new StoryOdsReaderWriter();
+        obj.changeODS(file);
+    }
+    
 }
