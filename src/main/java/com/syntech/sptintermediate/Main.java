@@ -5,10 +5,10 @@
  */
 package com.syntech.sptintermediate;
 
-
-interface IUsers{
+/**
+ *
+ * @author hrishi
+ */
+public class Main {
     
-    public void addUser();
-    public void deleteUser();
-    public void viewUser();
 }

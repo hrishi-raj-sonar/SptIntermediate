@@ -9,14 +9,6 @@ package com.syntech.sptintermediate;
  *
  * @author hrishi
  */
-public class Reviewer extends UsersMethods implements IReviewer{
-
-//    private Long id;
-//    private String name;
-//    private String email;
-    
-    public void reviewStory(){
-        System.out.println("Reviewing story...");
-    }
-    
+interface IReviewer {
+    public void reviewStory();
 }

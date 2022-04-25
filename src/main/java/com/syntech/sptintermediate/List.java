@@ -9,14 +9,20 @@ package com.syntech.sptintermediate;
  *
  * @author hrishi
  */
-public class Reviewer extends UsersMethods implements IReviewer{
-
-//    private Long id;
-//    private String name;
-//    private String email;
+public class List implements IUsers{
     
-    public void reviewStory(){
-        System.out.println("Reviewing story...");
+    ArrayList<> new ArrayList
+    @Override
+    public void addUser() {
+        
+    }
+
+    @Override
+    public void deleteUser() {
+    }
+
+    @Override
+    public void viewUser() {
     }
     
 }

@@ -9,7 +9,9 @@ package com.syntech.sptintermediate;
  *
  * @author hrishi
  */
-interface Requestor <T>{
+public class Requestor{
     
-    //set role of the T user as requestor
+    private Long id;
+    private String name;
+    private String email;
 }

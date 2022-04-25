@@ -41,10 +41,10 @@ public class MsSqlConnection extends JdbcConnection {
         return password;
     }
     
-    public static void main(String[] args) throws SQLException {
-        MySqlConnection a = new MySqlConnection();
-        a.establishConnection();
-        a.read();
-        
-    }
+//    public static void main(String[] args) throws SQLException {
+//        MsSqlConnection a = new MsSqlConnection();
+//        a.establishConnection();
+//        a.read();
+//        
+//    }
 }

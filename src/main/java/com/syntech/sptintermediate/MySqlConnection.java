@@ -42,10 +42,4 @@ public class MySqlConnection extends JdbcConnection{
     }
     
     
-    public static void main(String[] args) throws SQLException {
-        MySqlConnection a = new MySqlConnection();
-        a.establishConnection();
-        a.read();
-        
-    }
 }

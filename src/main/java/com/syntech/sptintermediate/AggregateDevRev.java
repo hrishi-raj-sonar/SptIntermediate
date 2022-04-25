@@ -9,14 +9,16 @@ package com.syntech.sptintermediate;
  *
  * @author hrishi
  */
-public class Reviewer extends UsersMethods implements IReviewer{
-
-//    private Long id;
-//    private String name;
-//    private String email;
+public class AggregateDevRev {
     
-    public void reviewStory(){
-        System.out.println("Reviewing story...");
+    Developer dev = new Developer();
+    Reviewer rev = new Reviewer();
+    
+    public Developer createInstanceDeveloper(){
+        return dev;
     }
     
+    public Reviewer createInstanceReviewer(){
+        return rev;
+    }
 }
