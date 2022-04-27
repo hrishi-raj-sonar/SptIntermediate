@@ -5,6 +5,8 @@
  */
 package com.syntech.sptintermediate;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author hrishi
@@ -25,6 +27,14 @@ public abstract class AllUsers {
     public abstract void setUserRole();
     
     public abstract void viewAllUsers();
+    
+    public abstract void jdbcOptions() throws SQLException;
+    
+    public abstract void odsOptions();
+    
+    public abstract void listOptions();
+    
+    public abstract void storyOptions();
     
    
   
