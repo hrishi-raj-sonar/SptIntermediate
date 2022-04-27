@@ -14,8 +14,9 @@ import java.util.Scanner;
  *
  * @author hrishi
  */
-public class Developers extends AllUsers {
-
+public class Developers extends AllUsers<Developers> {
+    
+     
     public Developers(int id, String name, String email) {
         super(id, name, email);
     }
@@ -27,12 +28,9 @@ public class Developers extends AllUsers {
 
     private ArrayList<Developers> a = new ArrayList();
 
-    @Override
+    
     public void viewAllUsers() {
-        System.out.println("Viewing all developers: ");
-        for (Developers a1 : a) {
-            System.out.println(a1.id + a1.name + a1.email);
-        }
+        super.viewAllUsers(a);
     }
 
     private void addUser(Developers d) {
@@ -40,10 +38,21 @@ public class Developers extends AllUsers {
     }
 
     private void removeUser(int id) {
+        Developers d = null;
+        
+        for (Developers a1 : a){
+            if(a1.id == id){
+               d = a1; 
+            }
+        }
+        
         System.out.println("Removing developer with id " + id);
+        a.remove(d);
+//        a.removeIf(d -> d.id == id);
     }
 
     //    Developer's list options
+    @Override
     public void listOptions() {
 
         Scanner sc = new Scanner(System.in);

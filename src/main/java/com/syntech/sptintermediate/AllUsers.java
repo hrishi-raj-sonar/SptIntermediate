@@ -6,13 +6,14 @@
 package com.syntech.sptintermediate;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
  * @author hrishi
  */
-public abstract class AllUsers {
-    
+public abstract class AllUsers <T extends AllUsers>{
+
     int id;
     String name;
     String email;
@@ -26,7 +27,12 @@ public abstract class AllUsers {
     
     public abstract void setUserRole();
     
-    public abstract void viewAllUsers();
+    public void viewAllUsers(List<T> list) {
+        System.out.println("Viewing all developers: ");
+        for (T a1 : list) {
+            System.out.println(a1.id + a1.name + a1.email);
+        }
+    }
     
     public abstract void jdbcOptions() throws SQLException;
     

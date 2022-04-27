@@ -22,13 +22,9 @@ public class Reviewers extends AllUsers {
     
     private ArrayList<Reviewers> a = new ArrayList();
 
-    @Override
-    public void viewAllUsers() {
-        System.out.println("Viewing all reviewers");
-        for (Reviewers a1 : a) {
-            System.out.println(a1.id + a1.name + a1.email);
-        }
-    }
+    public void viewAllUsers(){
+        super.viewAllUsers(a);
+    };
 
     @Override
     public void setUserRole() {
@@ -41,6 +37,16 @@ public class Reviewers extends AllUsers {
     
     public void removeUser(int id) {
         System.out.println("Removing developer with id "+ id);   
+        Reviewers r = null;
+        
+        for (Reviewers a1 : a){
+            if(a1.id == id){
+               r = a1; 
+            }
+        }
+        
+        System.out.println("Removing reviewer with id " + id);
+        a.remove(r);
     }
     
     
@@ -160,7 +166,7 @@ public class Reviewers extends AllUsers {
             switch (choice) {
                 case 1:
                     obj.addToODS(file);
-                    break;
+                    continue;
                 case 2:
                     obj.removeOdsRow(file);
                     break;
