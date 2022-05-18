@@ -12,11 +12,11 @@ package com.syntech.sptintermediate;
 interface IAllUsers { //this is an extra to show static and default functions in interfaces
     
 
-    static void printa(){
+    static void printa(){ //called by class objects that implements IAllUsers
         System.out.println("Hello fish");
     }
     
-    default void printaa(){
+    default void printaa(){  //called as IAllUsers.printaa
         System.out.println("Hello fishes");
     }
 }

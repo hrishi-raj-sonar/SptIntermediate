@@ -27,11 +27,26 @@ public abstract class AllUsers <T extends AllUsers>{
     
     public abstract void setUserRole();
     
-    public void viewAllUsers(List<T> list) {
-        System.out.println("Viewing all developers: ");
+    public String getAllUsers(List<T> list) {
+        
+//        getting T classname only
+        String userTypeClass = ""+list.get(0).getClass();
+        String userType =  userTypeClass.substring(userTypeClass.lastIndexOf(".")+1);
+        
+        System.out.println("Viewing all " + userType);
+        
+//        storing all users in a string
+        String allUsers = "";
         for (T a1 : list) {
-            System.out.println(a1.id + a1.name + a1.email);
+                allUsers = allUsers + a1.id + "  "+ a1.name + "  "+ a1.email + "\n";
         }
+        
+        return allUsers;
+    }
+    
+    public void viewAllUsers(List<T> list){
+        String allUsers = getAllUsers(list);
+        System.out.println(allUsers);
     }
     
     public abstract void jdbcOptions() throws SQLException;
